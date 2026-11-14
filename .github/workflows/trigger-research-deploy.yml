@@ -1,0 +1,25 @@
+name: Update research.jonoisart.com
+
+# A push here rebuilds and redeploys the hub site (jonoisart/research),
+# which pulls the latest main of every piece.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run the hub's deploy workflow
+        env:
+          # Fine-grained PAT: jonoisart/research only, Actions read and write.
+          GH_TOKEN: ${{ secrets.RESEARCH_DISPATCH_TOKEN }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::notice::RESEARCH_DISPATCH_TOKEN not set yet: skipped the hub deploy."
+            exit 0
+          fi
+          gh workflow run deploy.yml -R jonoisart/research --ref main
