@@ -18,6 +18,8 @@ Online at https://research.jonoisart.com/terra-cognita/. The [research hub](http
 
 To run it locally, open `index.html` in a browser. It is one self-contained page that loads its thumbnails from `thumbs/` and its fonts from Google Fonts. No build step.
 
+Clicking a thumbnail opens a full-window viewer. It shows the local thumbnail at once, then swaps in a 1280 px copy fetched from Wikimedia Commons at view time; if that fetch fails, the thumbnail stays. Close it with the X at top left, Esc, or Back.
+
 ## What's in here
 
 | Path | What it is |
