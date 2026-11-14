@@ -6,3 +6,6 @@ thumbs.zip
 contact_sheet.jpg
 __pycache__/
 .DS_Store
+
+# Flyer build output (regenerate with flyer/build.py)
+flyer/flyer.html
