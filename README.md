@@ -2,7 +2,7 @@
 
 The maps that redrew the world, from Bronze Age sky discs to the live map in your pocket.
 
-**Live site: https://jonoisart.github.io/terra-cognita/**
+**Live site: https://research.jonoisart.com/terra-cognita/**
 
 A sourced timeline of how people have charted land, sea, stars, bodies and networks, and what changed because they did. Each entry says what the map is, what it changed, where it is now, and links a source.
 
@@ -14,7 +14,7 @@ The test for inclusion is consequence. A map is here because a border moved, a s
 
 ## View it
 
-Online at https://jonoisart.github.io/terra-cognita/, served by GitHub Pages from the root of `main`.
+Online at https://research.jonoisart.com/terra-cognita/. The [research hub](https://github.com/jonoisart/research) pulls this repo's `main` and deploys it to Cloudflare.
 
 To run it locally, open `index.html` in a browser. It is one self-contained page that loads its thumbnails from `thumbs/` and its fonts from Google Fonts. No build step.
 
