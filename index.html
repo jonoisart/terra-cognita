@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maps That Changed the World</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a chart index. Year in a left rail like a sheet number, entry to the right, graticule only in the header. */
+:root{
+  --paper:#f2f5f4; --card:#ffffff; --ink:#13232b; --muted:#536770;
+  --sea:#1b5b6c; --gilt:#9a6f0c; --rule:#cbd5d5; --grid:rgba(27,91,108,.10);
+  --display:"Bodoni Moda","Didot","Bodoni MT",Georgia,serif;
+  --body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0d1a20; --card:#13252d; --ink:#e3ecec; --muted:#93a7ad;
+    --sea:#7fc6d5; --gilt:#e2b84f; --rule:#2a3d45; --grid:rgba(127,198,213,.09);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0d1a20; --card:#13252d; --ink:#e3ecec; --muted:#93a7ad;
+  --sea:#7fc6d5; --gilt:#e2b84f; --rule:#2a3d45; --grid:rgba(127,198,213,.09);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+a{color:var(--sea);text-underline-offset:2px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gilt);outline-offset:2px}
+.wrap{max-width:820px;margin:0 auto;padding:0 18px}
+header{
+  border-bottom:1px solid var(--rule);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:36px 36px;
+}
+header .wrap{padding-top:34px;padding-bottom:26px;display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gilt)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,8vw,56px);line-height:1.02;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.lede{max-width:62ch;margin:0;color:var(--ink)}
+.note{max-width:62ch;margin:0;color:var(--muted);font-size:14.5px}
+.filters{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--rule)}
+.filters .wrap{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding-top:10px;padding-bottom:10px;align-items:center}
+.chip{flex:none;white-space:nowrap;font:500 13px var(--body);color:var(--ink);background:var(--card);border:1px solid var(--rule);border-radius:999px;padding:6px 12px;cursor:pointer}
+.chip .ct{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:5px}
+.chip[aria-pressed="true"]{background:var(--sea);border-color:var(--sea);color:var(--paper)}
+.chip[aria-pressed="true"] .ct{color:var(--paper);opacity:.8}
+main{padding:8px 0 40px}
+.era{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:30px 0 6px;padding-bottom:6px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;gap:12px}
+.entry{display:grid;grid-template-columns:150px 1fr;gap:6px 18px;padding:20px 0;border-bottom:1px solid var(--rule)}
+.rail{display:flex;flex-direction:column;gap:2px}
+.num{font-family:var(--mono);font-size:12px;color:var(--gilt)}
+.year{font-family:var(--display);font-weight:500;font-size:22px;line-height:1.1;font-variant-numeric:tabular-nums}
+.yn{font-family:var(--mono);font-size:10.5px;color:var(--muted);line-height:1.3}
+.thumb{display:block;margin-top:8px}
+.thumb img{display:block;max-width:100%;width:auto;height:auto;max-height:210px;border:1px solid var(--rule);background:#fff}
+.nothumb{font-family:var(--mono);font-size:10.5px;line-height:1.35;color:var(--muted);margin-top:8px;border:1px dashed var(--rule);padding:6px 8px}
+.body{display:flex;flex-direction:column;gap:8px;min-width:0}
+h2{font-family:var(--display);font-weight:700;font-size:23px;line-height:1.15;margin:0;text-wrap:balance}
+.meta{font-size:13.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--sea);border:1px solid var(--sea);border-radius:3px;padding:1px 6px}
+.body p{margin:0;max-width:64ch}
+.lab{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:1px}
+.foot{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:2px;margin-top:2px}
+.foot b{font-weight:600;color:var(--ink)}
+section.end{border-top:1px solid var(--rule);padding:26px 0 50px;display:flex;flex-direction:column;gap:14px}
+section.end h3{font-family:var(--display);font-size:20px;margin:0}
+section.end p{margin:0;max-width:64ch;font-size:14.5px;color:var(--muted)}
+@media (max-width:520px){
+  .entry{grid-template-columns:1fr;gap:8px}
+  .rail{flex-direction:row;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .year{font-size:20px}
+  .thumb,.nothumb{flex-basis:100%;margin-top:4px}
+  .thumb img{max-height:240px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Index of 60 sheets &middot; c. 1600 BCE to 2020</div>
+    <h1>Sixty Maps That Changed the World</h1>
+    <p class="lede">Each of these maps did more than record a place. It moved a border, launched a science, fixed a name, or changed how people find their way. Half of them stretch the word map: charts of ocean swells, the night sky, the brain, the elements, a network, a genome. They run in date order, oldest first. The numbers are sequence, not rank.</p>
+    <p class="note">Selection is a judgement call. The test was consequence: what happened because this map existed. Where historians dispute a date or an effect, the entry says so. Every entry links to a source.</p>
+  </div>
+</header>
+
+<nav class="filters" aria-label="Filter by theme"><div class="wrap" id="chips"></div></nav>
+
+<main><div class="wrap" id="list"></div></main>
+
+<div class="wrap">
+<section class="end">
+  <h3>Near misses</h3>
+  <p>Juan de la Cosa's chart of 1500 (the earliest surviving map to show the Americas), the Piri Reis map of 1513, the Madaba mosaic, Lewis and Clark's map of 1814, the Sanborn fire insurance atlases, the Gall-Peters projection row of 1973, and OpenStreetMap (2004) all have a claim. So does the Ordnance Survey's first sheet (1801). They lost out to entries that did the same job earlier or with wider effect.</p>
+  <h3>Reading the entries</h3>
+  <p>Dates marked c. are approximate. For objects that survive only as later copies (Ptolemy, the Peutinger map, the Kangnido) the date is that of the original work. Dimensions and holdings come from the holding institution or the linked source. Thumbnails are public-domain or openly licensed images, credited in each entry; five maps still in copyright have none. Compiled November 2026.</p>
+</section>
+</div>
+
+<script>
+var THEMES = ["World picture","Wayfinding","Survey","Power","Data","Sky","Other terrains"];
+var ERAS = [
+  {to:1399, label:"Antiquity to 1400"},
+  {to:1599, label:"1400 to 1600"},
+  {to:1799, label:"1600 to 1800"},
+  {to:1899, label:"1800 to 1900"},
+  {to:9999, label:"1900 to today"}
+];
+var MAPS = [
+{y:-600, yd:"c. 600 BCE", t:"Babylonian Map of the World", by:"Unknown scribe, Sippar, Mesopotamia", th:"World picture",
+ what:"A palm-size clay tablet, 12.2 by 8.2 cm. Babylon sits near the centre, the Euphrates runs through it, and a ring of ocean encloses the known lands, with mythical regions beyond.",
+ ch:"The oldest surviving attempt to draw the whole world on one surface. It sets a pattern world maps kept for two thousand years: the maker's own city in the middle, the unknown pushed to the rim.",
+ now:"British Museum, London (acquired 1882)", sl:"Britannica", su:"https://www.britannica.com/topic/Babylonian-Map-of-the-World"},
+{y:150, yd:"c. 150 CE", t:"Ptolemy's Geography", by:"Claudius Ptolemy, Alexandria", th:"World picture",
+ what:"A manual for mapping the world: projection methods plus latitude and longitude for roughly 8,000 places. No original maps survive. The earliest Greek manuscripts date from the 13th century.",
+ ch:"Translated into Latin in Florence in 1406, it gave Renaissance Europe the coordinate grid and the north-up convention. It also understated the size of the Earth, an error Columbus leaned on when he sailed west.",
+ now:"Manuscript copies in the Vatican Library, British Library and elsewhere", sl:"Wikipedia: Geography (Ptolemy)", su:"https://www.wikipedia.org/wiki/Geographia"},
+{y:400, yd:"c. 400", yn:"surviving copy c. 1200", t:"Tabula Peutingeriana", by:"Roman original, copied by a medieval scribe", th:"Wayfinding",
+ what:"A parchment roll 34 cm tall and 6.75 m long showing the Roman state road network as far as India: 555 cities, about 3,500 place names, distances marked between stops. Geography is squashed flat to fit the strip.",
+ ch:"The only surviving map of the Roman road system, and proof that the route diagram is ancient. It trades true shape for connections, the same bargain the Tube map made in 1933.",
+ now:"Austrian National Library, Vienna (UNESCO Memory of the World, 2007)", sl:"Wikipedia: Tabula Peutingeriana", su:"https://en.wikipedia.org/wiki/Tabula_Peutingeriana"},
+{y:1137, yd:"1137", t:"Yu Ji Tu (Map of the Tracks of Yu)", by:"Unknown maker, Song dynasty China", th:"Survey",
+ what:"Carved into a stone slab about 0.9 m square. China's coast and river systems are laid over a square grid, each square standing for 100 li, a scale near 1:4,500,000.",
+ ch:"The earliest surviving map with a measured grid and a consistent scale, centuries before Europe managed either. Because it is stone, paper rubbings could be pulled from it, so it worked as a printing plate too.",
+ now:"Stele Forest, Xi'an", sl:"Jerry Brotton in TIME", su:"https://ideas.time.com/2013/11/21/a-history-of-the-world-in-twelve-maps/slide/the-yu-ji-tu-1137/"},
+{y:1154, yd:"1154", t:"Tabula Rogeriana", by:"Muhammad al-Idrisi, Palermo", th:"World picture",
+ what:"Commissioned by Roger II, the Norman king of Sicily. Al-Idrisi spent about fifteen years questioning travellers and cross-checking their accounts, then produced 70 regional maps with a written geography and a world map engraved on a silver disc. South is at the top.",
+ ch:"It fused Greek, Arab and Latin knowledge into the most detailed description of Eurasia and North Africa then available. Keeping only what independent witnesses agreed on is an early form of source criticism.",
+ now:"Silver disc lost. Ten manuscript copies survive, the oldest in the Bibliotheque nationale de France", sl:"Wikipedia: Tabula Rogeriana", su:"https://en.wikipedia.org/wiki/Tabula_Rogeriana"},
+{y:1290, yd:"c. 1275-1300", t:"Carte Pisane", by:"Anonymous, probably Genoese", th:"Wayfinding",
+ what:"A sea chart of the Mediterranean on a single skin, built from compass bearings and estimated sailing distances and crossed by a web of direction lines.",
+ ch:"The oldest surviving nautical chart. Portolans like this were drawn from observation for use at sea, the first European maps accurate enough to steer by. Its exact date is still argued over.",
+ now:"Bibliotheque nationale de France, Paris", sl:"Beinecke Library, Yale", su:"https://beinecke.library.yale.edu/article/portolan-charts"},
+{y:1300, yd:"c. 1300", t:"Hereford Mappa Mundi", by:"Attributed to Richard of Haldingham, England", th:"World picture",
+ what:"Drawn on one calfskin, 1.58 by 1.33 m. East is at the top and Jerusalem at the centre, with about 500 drawings of cities, Bible scenes, beasts and monstrous peoples.",
+ ch:"The largest medieval world map still in existence and the clearest record of what such maps were for: placing human history inside a Christian story, with no intent to guide a traveller. The larger Ebstorf map burned in 1943.",
+ now:"Hereford Cathedral, England", sl:"Guinness World Records", su:"https://www.guinnessworldrecords.com/world-records/606607-largest-surviving-medieval-world-map"},
+{y:1375, yd:"1375", t:"Catalan Atlas", by:"Attributed to Abraham Cresques, Majorca", th:"World picture",
+ what:"Six panels joining a portolan chart of the Mediterranean to everything Majorcan mapmakers knew of Asia and Africa, including Silk Road caravans and Mansa Musa of Mali holding a piece of gold.",
+ ch:"It told European courts where the gold and spices came from. The image of a West African king rich in gold stayed on maps for generations and helped pull Iberian ships down the African coast.",
+ now:"Bibliotheque nationale de France, Paris (MS Espagnol 30)", sl:"British Library", su:"https://www.bl.uk/stories/blogs/posts/african-kings-on-medieval-and-renaissance-maps"},
+{y:1402, yd:"1402", t:"Kangnido", by:"Kwon Kun, Yi Hoe and court officials, Joseon Korea", th:"World picture",
+ what:"A world map compiled at the Korean court from two Chinese maps, with Korea and Japan added. China fills the centre and Korea is oversized, but Arabia, Africa and Europe all appear at the western edge.",
+ ch:"The oldest surviving East Asian map to show Africa and Europe, made decades before Portuguese ships rounded the Cape. It shows how far geographic knowledge had travelled across Mongol-era Eurasia. The original is lost.",
+ now:"Two later copies, both in Japan", sl:"Wikipedia: Gangnido", su:"https://en.wikipedia.org/wiki/Gangnido"},
+{y:1450, yd:"c. 1450", t:"Fra Mauro World Map", by:"Fra Mauro, San Michele monastery, Venice", th:"World picture",
+ what:"A circular world map about two metres across, south at the top, packed with notes drawn from merchants, sailors and Arab sources. A sister copy went to Afonso V of Portugal.",
+ ch:"It breaks with the mappa mundi. Jerusalem is no longer the centre, Ptolemy is questioned where travellers contradict him, and Africa has open sea to the south, a prospect Portugal was about to test.",
+ now:"Biblioteca Nazionale Marciana, Venice", sl:"Biblioteca Nazionale Marciana", su:"https://bibliotecanazionalemarciana.cultura.gov.it/en/book-and-archival-heritage/book-and-archival-heritage/fra-mauros-world-map/"},
+{y:1502, yd:"1502", t:"Cantino Planisphere", by:"Anonymous Portuguese chartmaker, Lisbon", th:"Power",
+ what:"A copy of Portugal's closely guarded master chart, obtained in Lisbon by Alberto Cantino, agent of the Duke of Ferrara, and carried to Italy. It shows the Brazilian coast, the sea route to India, and a ruled line down the Atlantic.",
+ ch:"That line is the earliest surviving drawing of the Treaty of Tordesillas boundary, which split the non-European world between Spain and Portugal. The map is also evidence that charts had become state secrets worth smuggling.",
+ now:"Biblioteca Estense, Modena", sl:"National Geographic", su:"https://www.nationalgeographic.com/history/history-magazine/article/cantino-planisphere-map-new-world-portugal"},
+{y:1502.5, yd:"1502", t:"Plan of Imola", by:"Leonardo da Vinci, for Cesare Borgia", th:"Survey",
+ what:"Made while Leonardo served as Borgia's military engineer. He paced the streets, took bearings from the tower at the central crossroads, and plotted every block as if seen from directly overhead.",
+ ch:"The earliest surviving town plan drawn as a measured overhead view instead of a hillside picture. Every street map and site plan since rests on the same idea. It is accurate enough to walk Imola with today.",
+ now:"Royal Collection, Windsor (RCIN 912284)", sl:"Royal Collection Trust", su:"https://col.rct.uk/collection/912284/a-map-of-imola"},
+{y:1507, yd:"1507", t:"Waldseemuller World Map", by:"Martin Waldseemuller and Matthias Ringmann, Saint-Die", th:"Power",
+ what:"A twelve-sheet printed wall map, roughly 1.4 by 2.4 m. The newly reached western lands appear as a separate landmass with an ocean beyond, and the word America is printed across what is now Brazil.",
+ ch:"First use of the name America, for Amerigo Vespucci, and the first map to show a distinct western hemisphere and Pacific. Waldseemuller dropped the name later, but a print run of 1,000 had already fixed it.",
+ now:"Library of Congress, Washington (only surviving copy, bought for $10 million)", sl:"Library of Congress", su:"https://www.loc.gov/item/prn-01-093/"},
+{y:1569, yd:"1569", t:"Mercator's World Map", by:"Gerardus Mercator, Duisburg", th:"Wayfinding",
+ what:"An 18-sheet world map, 202 by 124 cm, on a new projection. Parallels are spaced farther apart toward the poles so that any course of constant compass bearing plots as a straight line.",
+ ch:"It became the standard for nautical charts and still is. A variant sits under most web maps. The cost is area: high latitudes balloon, so Greenland looks as large as Africa, which has shaped how people picture the world.",
+ now:"A handful of copies survive, in Paris, Basel and Rotterdam", sl:"Cabinet, University of Oxford", su:"https://www.cabinet.ox.ac.uk/node/7682"},
+{y:1570, yd:"1570", t:"Theatrum Orbis Terrarum", by:"Abraham Ortelius, Antwerp", th:"World picture",
+ what:"Published 20 May 1570: 53 map sheets engraved to one format and bound with text, crediting the mapmakers Ortelius drew on.",
+ ch:"The first modern atlas. It turned maps from scattered single sheets into a standard reference book, and it sold: more than 7,000 copies across 31 editions and seven languages by 1612.",
+ now:"Held by many libraries, including the Library of Congress", sl:"University of Michigan Library", su:"https://www.lib.umich.edu/about-us/news/ortelius-atlas-part-1-first-modern-atlas"},
+{y:1602, yd:"1602", t:"Kunyu Wanguo Quantu", by:"Matteo Ricci with Li Zhizao, Beijing", th:"World picture",
+ what:"A six-panel woodblock world map in Chinese, printed in Beijing. It sets China and the Pacific near the centre and describes the Americas in Chinese text.",
+ ch:"The oldest surviving map in Chinese to show the Americas. It carried European geography into Ming China, and versions spread to Korea and Japan. Six original copies are known.",
+ now:"James Ford Bell Library, University of Minnesota (one of six)", sl:"James Ford Bell Library", su:"https://www.lib.umn.edu/bell/collection/riccimap"},
+{y:1701, yd:"1701", t:"Halley's Chart of Compass Variation", by:"Edmond Halley, London", th:"Data",
+ what:"After two Atlantic voyages commanding the Paramore, Halley plotted his compass readings as curved lines joining points of equal magnetic variation.",
+ ch:"The first published map to use isolines. The hope of finding longitude this way failed, but the device spread to anything measurable: contour lines, isobars on weather charts, isotherms.",
+ now:"Printed copies in major map collections", sl:"Barry Lawrence Ruderman Antique Maps", su:"https://raremaps.com/gallery/detail/98400"},
+{y:1744, yd:"1744-1815", t:"Cassini Map of France", by:"Four generations of the Cassini family, Paris", th:"Survey",
+ what:"The Cassinis triangulated the whole of France, finishing the framework in 1744, then published the country on 182 sheets at 1:86,400 between 1756 and 1815. Assembled, it is roughly 12 m square.",
+ ch:"The first national survey built on geodetic triangulation. It was nationalised in the Revolution, and a cross-Channel link to the French triangles in 1787 paved the way for Britain's Ordnance Survey. Every national mapping agency follows the model.",
+ now:"Bibliotheque nationale de France. Full set online at the David Rumsey Map Collection", sl:"David Rumsey Map Collection", su:"https://www.davidrumsey.com/blog/2009/10/11/national-survey-of-france-1750-1815"},
+{y:1748, yd:"1748", t:"Nolli's Plan of Rome", by:"Giambattista Nolli, Rome", th:"Survey",
+ what:"Twelve engraved sheets, 176 by 208 cm assembled, from a survey begun in 1736. Buildings are solid black. Streets, squares and the interiors of churches and other public buildings are left white.",
+ ch:"It defined the figure-ground plan, showing a city as continuous public space cut from private mass. Rome used it as a base map into the 1970s, and architects still call this kind of drawing a Nolli map.",
+ now:"Prints widely held. The original copper plates are in Rome", sl:"nollimap.com", su:"https://nollimap.com/"},
+{y:1755, yd:"1755", t:"Mitchell Map", by:"John Mitchell, London", th:"Power",
+ what:"An eight-sheet map of British and French claims in North America, drawn for the Board of Trade to press Britain's territorial case against France.",
+ ch:"British and American negotiators marked up copies in Paris in 1782-83 to define the borders of the new United States. Its errors left boundary disputes with Canada that took until 1842 on land and 1984 at sea to settle.",
+ now:"Marked-up treaty copies at the British Library and the New-York Historical Society", sl:"National Geographic", su:"https://www.nationalgeographic.com/science/article/the-unlikely-story-of-the-map-that-helped-create-our-nation"},
+{y:1815, yd:"1815", t:"Smith's Geological Map of England and Wales", by:"William Smith, London", th:"Data",
+ what:"A hand-coloured map 8.5 by 6 ft at five miles to the inch, the product of years of solo fieldwork by a canal surveyor who saw that rock layers lie in a fixed order and can be told apart by their fossils.",
+ ch:"The first geological map of a whole country. It made the ground readable for coal, ore and water, and it founded stratigraphy. The British Geological Survey still uses his colour scheme.",
+ now:"Geological Society, Burlington House, London", sl:"University of Cambridge", su:"https://www.cam.ac.uk/research/news/the-magna-carta-of-scientific-maps"},
+{y:1854, yd:"1854", t:"Snow's Cholera Map", by:"John Snow, London", th:"Data",
+ what:"Snow marked each death in a Soho cholera outbreak as a bar at the victim's address. The bars pile up around one public water pump on Broad Street.",
+ ch:"It made the case that cholera travels in water, against the accepted theory of bad air. Snow had already talked the parish into taking the handle off the pump. The map, published in 1855, is what persuaded others, and it became the founding image of epidemiology.",
+ now:"Printed in On the Mode of Communication of Cholera, 2nd edition", sl:"London Museum", su:"https://www.londonmuseum.org.uk/collections/london-stories/john-snow-cholera-broad-street-pump/"},
+{y:1869, yd:"1869", t:"Minard's Map of Napoleon's Russian Campaign", by:"Charles Joseph Minard, Paris", th:"Data",
+ what:"Drawn when Minard was 88. A band whose width shows the size of Napoleon's army runs to Moscow and back, thinning from 422,000 men to about 10,000, with a temperature line under the retreat.",
+ ch:"Six variables on one sheet, readable in seconds. It became the reference point for statistical graphics and the ancestor of the flow map and of modern data visualisation.",
+ now:"Ecole nationale des ponts et chaussees, Paris", sl:"Linda Hall Library", su:"https://lindahall.org/charles-joseph-minard"},
+{y:1889, yd:"1889", t:"Booth's Poverty Map of London", by:"Charles Booth, London", th:"Data",
+ what:"London coloured street by street by the class of its residents, on a seven-step scale from black for the lowest class through blues and reds to yellow for the wealthy, built from the notebooks of school board visitors.",
+ ch:"It put a number and an address on poverty: roughly a third of Londoners lived below what Booth called the poverty line. The survey fed the case for state welfare, and Booth campaigned for the old-age pension Britain adopted in 1908.",
+ now:"LSE Library, London, with the 1889 working maps at the London Museum", sl:"Charles Booth's London, LSE", su:"https://booth.lse.ac.uk/learn-more/what-were-the-poverty-maps"},
+{y:1916, yd:"1916", t:"Sykes-Picot Map", by:"Mark Sykes and Francois Georges-Picot", th:"Power",
+ what:"A map of the Ottoman Middle East with coloured zones and a line across it, signed by both diplomats on 8 May 1916. In secret, it allots zones of British and French control and influence.",
+ ch:"Published by the Bolsheviks in 1917, it has stood for imposed borders ever since. The final frontiers of Iraq, Syria, Lebanon, Jordan and Palestine came from later conferences, but the premise that outside powers would draw them starts here.",
+ now:"The National Archives, Kew (MPK 1/426)", sl:"The National Archives (UK)", su:"https://images.nationalarchives.gov.uk/asset/76991"},
+{y:1933, yd:"1933", t:"Beck's London Underground Map", by:"Harry Beck, London", th:"Wayfinding",
+ what:"Beck, a laid-off Underground draughtsman, redrew the network in 1931 as a diagram: lines only horizontal, vertical or at 45 degrees, stations evenly spaced. Rejected at first, it was printed in January 1933 in a run of 750,000.",
+ ch:"It showed that riders need order and connections, not distance. Nearly every metro map since copies it.",
+ now:"London Transport Museum", sl:"London Museum", su:"https://www.londonmuseum.org.uk/collections/london-stories/harry-beck-revolutionised-tube-map/"},
+{y:1935, yd:"1935-40", t:"HOLC Residential Security Maps", by:"Home Owners' Loan Corporation, United States", th:"Power",
+ what:"A federal agency graded neighbourhoods in more than 200 American cities for mortgage risk, from A (green) to D (red, labelled hazardous). Black, immigrant or Jewish residents routinely earned an area a D.",
+ ch:"The maps put official colour on redlining. Historians still debate how far lenders used these sheets as against similar Federal Housing Administration maps, but the graded areas track gaps in wealth and home ownership that persist today.",
+ now:"US National Archives. Digitised by the University of Richmond's Mapping Inequality project", sl:"Dissent", su:"https://dissentmagazine.org/online_articles/redlining-black-lives-holc-mapping-inequality/"},
+{y:1957, yd:"1957-77", t:"Tharp and Heezen's Ocean Floor Maps", by:"Marie Tharp and Bruce Heezen, Lamont Observatory, New York", th:"Data",
+ what:"Tharp, kept off research ships for most of her career, turned sonar depth readings collected by Heezen into relief drawings of the seabed. The North Atlantic came out in 1957 and the full World Ocean Floor, painted by Heinrich Berann, in 1977.",
+ ch:"Her profiles revealed a rift valley running down the Mid-Atlantic Ridge, evidence that the sea floor was pulling apart. The maps made plate tectonics visible and helped move it from fringe idea to accepted science.",
+ now:"Library of Congress and Lamont-Doherty Earth Observatory", sl:"Science News", su:"https://sciencenews.org/article/marie-tharp-maps-plate-tectonics-seafloor-cartography"},
+{y:2003, yd:"2003", t:"WMAP Map of the Early Universe", by:"NASA WMAP science team", th:"Sky",
+ what:"An all-sky map of temperature differences of a few millionths of a degree in the cosmic microwave background, the afterglow of the Big Bang.",
+ ch:"From the pattern of spots the team fixed the age of the universe at 13.7 billion years, within one percent, and its makeup at about 4 percent atoms, 23 percent dark matter and 73 percent dark energy. Cosmology became a precision science. Later missions nudged the age to about 13.8 billion.",
+ now:"NASA Goddard Space Flight Center data archive", sl:"NASA Goddard", su:"https://imagine.gsfc.nasa.gov/news/12feb03.html"},
+{y:2005, yd:"2005", t:"Google Maps", by:"Google, built on Where 2 Technologies, Sydney", th:"Wayfinding",
+ what:"Launched in the US on 8 February 2005. The map could be dragged and zoomed in a browser without reloading, and it soon added satellite imagery, an API for other sites, and Street View in 2007.",
+ ch:"The map became a live service centred on the user's own position, used by more than a billion people a month. Paper wayfinding faded, and industries from ride-hailing to delivery now run on the same base layer.",
+ now:"maps.google.com", sl:"heise online", su:"https://heise.de/-10272513"},
+
+/* Second thirty: a wider idea of what a map is */
+{y:-1600, yd:"c. 1600 BCE", t:"Nebra Sky Disc", by:"Unknown makers, Bronze Age central Germany", th:"Sky",
+ what:"A bronze disc about 30 cm across, inlaid with gold: a sun or full moon, a crescent, and a cluster of stars read as the Pleiades. Looters dug it up in 1999 and police recovered it in a sting in 2002.",
+ ch:"The oldest known concrete depiction of the sky. One reading is that it encodes a rule for keeping the lunar and solar calendars in step, which would make it a working tool for timing the farming year. The interpretation is still debated.",
+ now:"State Museum of Prehistory, Halle (UNESCO Memory of the World, 2013)", sl:"Arche Nebra", su:"https://www.himmelsscheibe-erleben.de/en/ihr-besuch/translate-to-en-besucherinformation/die-himmelsscheibe-von-nebra"},
+{y:-1150, yd:"c. 1150 BCE", t:"Turin Papyrus Map", by:"Egyptian scribe, reign of Ramesses IV", th:"Survey",
+ what:"A papyrus roll drawn for a royal quarrying expedition. It shows a 15 km stretch of Wadi Hammamat with hills coloured by rock type, a gold mine, a stone quarry, and captions giving distances and destinations.",
+ ch:"The oldest surviving geological map and one of the oldest topographic ones. It records where the useful stone and gold lie, which is the job geological maps still do, some 2,900 years before William Smith.",
+ now:"Museo Egizio, Turin", sl:"Wikipedia: Turin Papyrus Map", su:"https://en.wikipedia.org/wiki/Turin_Papyrus_Map"},
+{y:207, yd:"c. 203-211", t:"Forma Urbis Romae", by:"Surveyors of Septimius Severus, Rome", th:"Survey",
+ what:"A plan of Rome carved on 150 marble slabs and hung on a wall of the Temple of Peace: about 18 by 13 m at roughly 1:240, showing the ground plan of nearly every building down to columns and staircases. Some 1,200 fragments survive, 10 to 15 percent of the whole.",
+ ch:"Nothing matched its detail for 1,500 years. Fragments found from 1562 on shaped how Rome was studied, and Nolli's plan of 1748 stands in its line. Scholars still argue over whether it was a working record or a display piece.",
+ now:"Museo della Forma Urbis, Rome", sl:"Smarthistory", su:"https://smarthistory.org/severan-marble-plan"},
+{y:700, yd:"c. 649-684", t:"Dunhuang Star Atlas", by:"Unknown astronomer, Tang dynasty China", th:"Sky",
+ what:"A paper scroll with twelve charts of the sky by hour angle and one of the north polar region: 1,339 stars in 257 Chinese star groups, inked in three colours for the three ancient schools that catalogued them. Found in the Mogao Caves in 1907.",
+ ch:"The oldest complete star atlas known from any civilisation. Its authors used consistent mathematical projections, and its positions for bright stars are good to a few degrees.",
+ now:"British Library, London (Or.8210/S.3326)", sl:"Journal of Astronomical History and Heritage", su:"https://ui.adsabs.harvard.edu/abs/2009JAHH...12...39B/abstract"},
+{y:1430, yd:"c. 1420s", yn:"printed 1628", t:"Mao Kun Map", by:"Navigators of Zheng He's fleets, Ming China", th:"Wayfinding",
+ what:"A strip chart 20.5 cm tall and 5.6 m long, printed as 40 pages in the military treatise Wubei Zhi. It runs from Nanjing through Southeast Asia and India to Hormuz and the East African coast, with compass courses and star diagrams for open-sea crossings.",
+ ch:"The main surviving chart from the treasure voyages and the earliest Chinese map to give an adequate picture of South Asia, Arabia and East Africa. It records a Chinese ocean-going system at its peak, shortly before the Ming court ended the voyages.",
+ now:"Surviving copies of the Wubei Zhi, including one at the Library of Congress", sl:"Wikipedia: Mao Kun map", su:"https://en.wikipedia.org/wiki/Mao_Kun_map"},
+{y:1524, yd:"1524", t:"Nuremberg Map of Tenochtitlan", by:"Unknown woodcutter, after an indigenous source", th:"Power",
+ what:"A woodcut printed with the Latin edition of Cortes's letters to Charles V. It shows the Aztec island capital with its causeways and temple precinct, south at the top, under a Habsburg flag. It was probably based on a map made by the city's own people.",
+ ch:"Europe's first picture of a city of perhaps 200,000, published three years after the Spanish razed it. Copied for generations, it fixed the image of the Aztec capital and presented its conquest as an imperial triumph.",
+ now:"Newberry Library, Chicago, among others", sl:"History Today", su:"https://www.historytoday.com/archive/cartography/map-tenochtitlan-1524"},
+{y:1651, yd:"1651", t:"Riccioli and Grimaldi's Moon Map", by:"Giovanni Battista Riccioli and Francesco Maria Grimaldi, Bologna", th:"Sky",
+ what:"Moon maps drawn by Grimaldi for Riccioli's Almagestum Novum. Riccioli named the dark plains as seas of weather and mood and the craters after astronomers and philosophers.",
+ ch:"His names stuck: Sea of Tranquillity, Copernicus, Tycho. The International Astronomical Union made the scheme official in 1935, so the Apollo 11 landing site carries a name coined by a Jesuit whose book argued against Copernicus.",
+ now:"Printed in Almagestum Novum (1651), held by major libraries", sl:"Paris Observatory Library", su:"https://bibnum.obspm.fr/1651-giovanni-riccioli-s-almagestum-novum"},
+{y:1768, yd:"1768", t:"Franklin-Folger Chart of the Gulf Stream", by:"Benjamin Franklin and Timothy Folger, London", th:"Wayfinding",
+ what:"As deputy postmaster, Franklin wanted to know why mail packets crossed more slowly than merchant ships. His cousin Folger, a Nantucket captain, sketched the current that whalers already knew, and it was engraved onto an existing Atlantic chart.",
+ ch:"The first chart of the Gulf Stream. It named the current and showed that the ocean has structure a ship can ride or avoid, the starting point for charting currents. Only three copies of the first printing are known.",
+ now:"Library of Congress, Washington", sl:"Library of Congress", su:"https://blogs.loc.gov/maps/2016/01/charting-the-gulf-stream/"},
+{y:1769, yd:"1769", t:"Tupaia's Chart", by:"Tupaia of Ra'iatea, with James Cook's officers", th:"Wayfinding",
+ what:"Tupaia, a navigator and priest who joined the Endeavour at Tahiti, drew the islands he knew in collaboration with Cook and his officers. The surviving copies show dozens of islands spread across the Pacific, their names written down by ear.",
+ ch:"The clearest record of how far Polynesian geographic knowledge reached at first contact. It blends two systems, a European sheet with compass points and Polynesian sailing directions, and researchers have spent 250 years working out how to read it.",
+ now:"British Library, London (Add MS 21593 C)", sl:"University of Potsdam", su:"https://uni-potsdam.de/en/iaa-alc/tupaias-map"},
+{y:1785, yd:"1785-87", t:"Plat of the Seven Ranges", by:"Thomas Hutchins, Geographer of the United States", th:"Survey",
+ what:"The first survey under the Land Ordinance of 1785. Starting from a point on the Ohio River, Hutchins's crews laid out seven north-south ranges of townships six miles square, each divided into 36 one-mile sections.",
+ ch:"The prototype of the Public Land Survey System, which went on to grid most of the United States west of Ohio. One section in each township was reserved to fund schools. The squares still show from any airplane window and in every rural deed.",
+ now:"Library of Congress and US National Archives", sl:"Wikipedia: Seven Ranges", su:"https://en.wikipedia.org/wiki/Seven_Ranges"},
+{y:1802, yd:"1802-70", t:"Great Trigonometrical Survey of India", by:"William Lambton, George Everest and successors", th:"Survey",
+ what:"A chain of measured triangles begun by Lambton near Madras in 1802 and carried 1,500 miles north along the 78th meridian, reaching the Himalayan foothills in 1841. The 1870 index chart shows the whole web.",
+ ch:"It gave Britain the precise map it needed to tax, defend and rule India, and it refined the measured shape of the Earth. In 1856 it put Peak XV at 29,002 feet, the highest known, and the mountain was named for Everest. The key computation is credited to Radhanath Sikdar.",
+ now:"Survey of India; index chart at the Royal Geographical Society", sl:"GPS World", su:"https://www.gpsworld.com/peak-xv-the-framework-that-measured-mount-everest/"},
+{y:1807, yd:"1807", t:"Humboldt's Naturgemalde", by:"Alexander von Humboldt and Aime Bonpland", th:"Data",
+ what:"A cross-section of Chimborazo and the equatorial Andes with plant names written at the heights where they grow, flanked by columns of measurements such as temperature and air pressure, all tied to altitude.",
+ ch:"It showed vegetation as belts governed by climate and so laid the foundations of biogeography. Teams now resurvey the same slopes to measure how far plants have moved uphill, and have found that some of his elevations were off.",
+ now:"Published with the Essay on the Geography of Plants; copy at the Zentralbibliothek Zurich", sl:"PNAS", su:"https://pmc.ncbi.nlm.nih.gov/articles/PMC6601271"},
+{y:1812, yd:"1812", t:"The Gerry-mander", by:"Elkanah Tisdale, Boston Gazette", th:"Power",
+ what:"A cartoon printed on 26 March 1812. Tisdale took the map of a new Massachusetts state senate district in Essex County, signed into law by Governor Elbridge Gerry, and gave it a head, wings and claws.",
+ ch:"It named the practice of drawing districts for party advantage and made the shape of a district a public question. The word outlived the district, and the practice outlived both.",
+ now:"Library of Congress, which also holds the original woodblocks", sl:"Library of Congress", su:"https://blogs.loc.gov/loc/2024/07/gerrymandering-the-origin-story/"},
+{y:1826, yd:"1826", t:"Dupin's Map of Schooling in France", by:"Charles Dupin, Paris", th:"Data",
+ what:"A map of France with each department tinted by how many inhabitants there were for every boy in school: the darker the shade, the less schooling. Dupin showed it in a lecture on 30 November 1826.",
+ ch:"The first choropleth map. Shading regions by a statistic is now the default way to show elections, income and disease, along with the distortion that comes from colouring land instead of people.",
+ now:"Bibliotheque nationale de France, Paris", sl:"Belgeo", su:"https://journals.openedition.org/belgeo/11893?lang=en"},
+{y:1837, yd:"1837", t:"Darwin's Tree Sketch", by:"Charles Darwin, London", th:"Other terrains",
+ what:"Page 36 of a pocket notebook Darwin opened in July 1837. Under the words I think, he drew a branching diagram of species descending from a common ancestor.",
+ ch:"The first sketch of an evolutionary tree, two decades before On the Origin of Species. It maps relationship by descent, and every phylogeny since redraws it. The notebook went missing from Cambridge around 2001 and came back anonymously in 2022.",
+ now:"Cambridge University Library (MS DAR 121)", sl:"Cambridge Digital Library", su:"https://cudl.lib.cam.ac.uk/view/MS-DAR-00121"},
+{y:1861, yd:"1861", t:"Coast Survey Map of Slavery", by:"Edwin Hergesheimer, US Coast Survey", th:"Power",
+ what:"Built from the 1860 census. Each Southern county is shaded by the share of its people who were enslaved, with the percentage printed on it. Copies were sold to benefit sick and wounded Union soldiers.",
+ ch:"Among the first statistical maps published in the United States. It showed at a glance where slavery was concentrated. Lincoln consulted it often enough that a painter put it in his picture of the president with the Emancipation Proclamation.",
+ now:"Library of Congress, Washington", sl:"Library of Congress", su:"https://blogs.loc.gov/loc/2012/10/mapping-slavery"},
+{y:1868.9, yd:"1869", t:"Mendeleev's Periodic Table", by:"Dmitri Mendeleev, St Petersburg", th:"Other terrains",
+ what:"A chart of the 63 known elements ordered by atomic weight so that similar properties recur at regular intervals. Mendeleev left gaps where no known element fit.",
+ ch:"A map of matter with blank regions that turned out to be real. He described the missing elements in advance, and gallium (1875), scandium (1879) and germanium (1886) matched his predictions. The layout still organises chemistry.",
+ now:"Manuscript drafts in St Petersburg", sl:"Science News", su:"https://www.sciencenews.org/article/periodic-table-history-chemical-elements-150-anniversary"},
+{y:1875, yd:"1875", t:"The Times Weather Map", by:"Francis Galton, London", th:"Data",
+ what:"A chart of the previous day's weather prepared by Galton and printed in The Times on 1 April 1875, with pressure, temperature, wind arrows and the state of sky and sea.",
+ ch:"The first weather map in a newspaper. It reported what had happened and made no forecast, but it taught readers to see weather as moving systems, and the daily weather map became a fixture of news worldwide.",
+ now:"The Times archive", sl:"galton.org", su:"https://galton.org/meteorologist.html"},
+{y:1877, yd:"1877", t:"Schiaparelli's Map of Mars", by:"Giovanni Schiaparelli, Brera Observatory, Milan", th:"Sky",
+ what:"During the close approach of 1877 Schiaparelli mapped Mars with a new set of classical names and a network of fine straight lines he called canali, meaning channels.",
+ ch:"His naming system is still in use. English turned canali into canals, Percival Lowell spent his life arguing that Martians had dug them, and the idea fed decades of science fiction. Better telescopes showed the lines were an optical illusion.",
+ now:"Brera Astronomical Observatory, Milan", sl:"Wikipedia: Giovanni Schiaparelli", su:"https://en.wikipedia.org/wiki/Giovanni_Schiaparelli"},
+{y:1890, yd:"19th c.", yn:"tradition far older", t:"Marshall Islands Stick Charts", by:"Marshallese navigators", th:"Wayfinding",
+ what:"Lattices of coconut-frond ribs tied together, with shells for atolls. Curved sticks show how islands bend and block ocean swells. Navigators studied and memorised them on land and did not take them to sea.",
+ ch:"The first known system for mapping ocean swells. They show that a map can chart forces a pilot feels through the hull, with no coastline drawn at all. Their use ended after the Second World War.",
+ now:"British Museum and other collections", sl:"Wikipedia: Marshall Islands stick chart", su:"https://en.wikipedia.org/wiki/Marshall_Islands_stick_chart"},
+{y:1909, yd:"1909", t:"Brodmann's Map of the Cortex", by:"Korbinian Brodmann, Berlin", th:"Other terrains",
+ what:"From stained slices of brain under the microscope, Brodmann divided the cortex into areas by how its cells are layered and numbered them 1 to 52. Forty-three of the numbers apply to humans.",
+ ch:"It turned the brain's surface into mapped territory. Area 4 for movement and area 17 for vision are still everyday terms in imaging and surgery. A 2016 map built from living brains split his areas further, to about 180 per hemisphere, without discarding them.",
+ now:"Published in Vergleichende Lokalisationslehre der Grosshirnrinde (1909)", sl:"Frontiers in Human Neuroscience", su:"https://pmc.ncbi.nlm.nih.gov/articles/PMC3044325"},
+{y:1915, yd:"1915", t:"Wegener's Maps of Continental Drift", by:"Alfred Wegener, Marburg", th:"World picture",
+ what:"World maps in The Origin of Continents and Oceans that fit today's continents into a single landmass, which Wegener called Pangaea, and then show them moving apart over geological time.",
+ ch:"Wegener had the pattern right and the driving force wrong, and most geologists rejected him. He died on the Greenland ice in 1930. Sea-floor mapping in the 1950s and 60s revived the picture as plate tectonics.",
+ now:"Published in Die Entstehung der Kontinente und Ozeane", sl:"Britannica", su:"https://www.britannica.com/biography/Alfred-Wegener"},
+{y:1947, yd:"1947", t:"The Radcliffe Line", by:"Cyril Radcliffe, Delhi", th:"Power",
+ what:"Radcliffe, a London barrister who had never been to India, arrived on 8 July 1947 with about five weeks to draw the borders splitting Punjab and Bengal between India and Pakistan. The award was published on 17 August, two days after independence.",
+ ch:"The line set off one of the largest forced migrations in history, with around 12 million people displaced and perhaps a million killed by common estimates. It still defines the borders of India with Pakistan and Bangladesh. Radcliffe refused his fee.",
+ now:"Radcliffe destroyed his working papers; the published awards survive in government archives", sl:"Live History India", su:"https://livehistoryindia.com/story/eras/cyril-radcliffe"},
+{y:1969, yd:"1969", t:"ARPANET Four-Node Map", by:"ARPA network engineers", th:"Other terrains",
+ what:"A sketch of the first four nodes of the ARPA network as connected by 5 December 1969: UCLA, the Stanford Research Institute, UC Santa Barbara and the University of Utah.",
+ ch:"The first map of what became the internet. It is a logical map, showing links and no geography, and the same convention still describes networks. By 1972 the net had 37 computers.",
+ now:"Computer History Museum, Mountain View", sl:"Scientific American", su:"https://www.scientificamerican.com/gallery/early-sketch-of-arpanets-first-four-nodes/"},
+{y:1972, yd:"1972", t:"Pioneer Plaque Pulsar Map", by:"Frank Drake, Carl Sagan and Linda Salzman Sagan", th:"Sky",
+ what:"A gold-anodised aluminium plate on Pioneer 10 and 11. Lines radiate from the Sun's position to 14 pulsars, each marked in binary with its spin period, plus one line to the centre of the galaxy. Drake designed the map.",
+ ch:"The first map made for a reader who is not human. Pulsars slow at measurable rates, so the diagram gives both a place and a date. The same map is on the covers of the two Voyager records.",
+ now:"Aboard Pioneer 10 and 11, outbound from the solar system", sl:"National Geographic", su:"https://www.nationalgeographic.com/magazine/article/nasa-sent-a-map-to-space-to-help-aliens-find-earth-now-it-needs-an-update"},
+{y:1985, yd:"1985", t:"Satellite Map of the Ozone Hole", by:"British Antarctic Survey and NASA's TOMS team", th:"Data",
+ what:"In May 1985 British Antarctic Survey scientists reported a steep springtime drop in ozone over their Halley station. That August NASA showed a satellite map from the TOMS instrument: the loss covered the whole continent.",
+ ch:"The map of a hole over Antarctica gave politicians and the public something to look at. The Montreal Protocol followed in 1987, CFC production was phased out, and Antarctic ozone could return to pre-1980 levels by about 2060.",
+ now:"NASA Goddard ozone data archive", sl:"UK Research and Innovation", su:"https://www.ukri.org/who-we-are/how-we-are-doing/research-outcomes-and-impact/nerc/the-story-behind-the-discovery-of-the-ozone-hole/"},
+{y:1986, yd:"1986", t:"A Slice of the Universe", by:"Valerie de Lapparent, Margaret Geller and John Huchra", th:"Sky",
+ what:"A wedge-shaped plot of about 1,100 galaxies in a thin strip of sky, each placed by its direction and its redshift distance from Earth.",
+ ch:"Galaxies turned out to lie on thin sheets around huge empty voids, like a cut through soap suds, where astronomers had expected an even scatter. The band across the plot became the Great Wall, some 600 million light years long. Every galaxy survey since maps this cosmic web.",
+ now:"Harvard-Smithsonian Center for Astrophysics", sl:"John Huchra, CfA", su:"https://lweb.cfa.harvard.edu/~dfabricant/huchra/zcat"},
+{y:2001, yd:"2001-03", t:"Human Genome Sequence", by:"International Human Genome Project", th:"Other terrains",
+ what:"The ordered sequence of about three billion DNA bases along the human chromosomes, produced by public labs in some 18 countries. The working draft was published in February 2001 and the finished sequence in April 2003.",
+ ch:"Biologists use it as a map: genes and variants are located by coordinate. The project finished early, released its data free each day, and drove sequencing costs down so far that reading a person's genome became a clinical test.",
+ now:"Public databases, updated continuously", sl:"US Department of Energy", su:"https://doe-humangenomeproject.ornl.gov/u-s-human-genome-project-research-goals/"},
+{y:2018, yd:"2018", t:"Gaia's Map of the Milky Way", by:"European Space Agency, Gaia mission", th:"Sky",
+ what:"From 22 months of scanning, the Gaia spacecraft measured position and brightness for nearly 1.7 billion stars, and distance and motion for more than 1.3 billion. Released 25 April 2018.",
+ ch:"The first large three-dimensional map of our galaxy with motions attached. Its predecessor Hipparcos surveyed about 118,000 stars. Astronomers use it to trace star streams and the galaxy's history, and its catalogue underpins much of current astronomy.",
+ now:"ESA Gaia Archive", sl:"European Space Agency", su:"https://www.esa.int/spaceinimages/Images/2018/04/Gaia_s_new_map_of_star_density"},
+{y:2020, yd:"2020", t:"Johns Hopkins COVID-19 Dashboard", by:"Lauren Gardner and Ensheng Dong, Johns Hopkins University", th:"Data",
+ what:"A live web map of confirmed cases that Gardner and her PhD student Dong put online on 22 January 2020, when the global count was in the hundreds.",
+ ch:"It became the world's shared picture of the pandemic, drawing billions of requests a day by spring 2020 and supplying news outlets and governments with data. Real-time public dashboards are now expected in any health emergency. It stopped updating in March 2023.",
+ now:"Archived at Johns Hopkins; data on GitHub", sl:"Lasker Foundation", su:"https://laskerfoundation.org/winners/covid-19-dashboard/"}
+];
+MAPS.sort(function(a,b){return a.y-b.y;});
+
+var THUMBS = {"Nebra Sky Disc": {"f": "thumbs/nebra.jpg", "w": 360, "h": 354, "a": "Dbachmann", "l": "CC BY-SA 3.0", "u": "https://commons.wikimedia.org/wiki/File:Nebra_Scheibe.jpg", "v": "Wikimedia Commons", "n": ""}, "Turin Papyrus Map": {"f": "thumbs/turin-papyrus.jpg", "w": 360, "h": 65, "a": "Unknown", "l": "CC0", "u": "https://commons.wikimedia.org/wiki/File:Turin_Papyrus_(geological_map)_-_Museo_Egizio_Turin_C_1879_1969_1899_p01.jpg", "v": "Wikimedia Commons", "n": ""}, "Babylonian Map of the World": {"f": "thumbs/babylonian.jpg", "w": 360, "h": 239, "a": "Osama Shukir Muhammed Amin FRCP(Glasg)", "l": "CC BY-SA 4.0", "u": "https://commons.wikimedia.org/wiki/File:The_Babylonian_map_of_the_world,_from_Sippar,_Mesopotamia..JPG", "v": "Wikimedia Commons", "n": ""}, "Ptolemy's Geography": {"f": "thumbs/ptolemy.jpg", "w": 360, "h": 246, "a": "Credited to Francesco di Antonio del Chierico", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:PtolemyWorldMap.jpg", "v": "Wikimedia Commons", "n": ""}, "Forma Urbis Romae": {"f": "thumbs/forma-urbis.jpg", "w": 360, "h": 191, "a": "Rodolfo Lanciani (1845-1929)", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Forma_Urbis_Romae_-_Macellum_Liviae.png", "v": "Wikimedia Commons", "n": "Rodolfo Lanciani's drawing of one fragment"}, "Tabula Peutingeriana": {"f": "thumbs/peutinger.jpg", "w": 360, "h": 27, "a": "Konrad Miller", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:TabulaPeutingeriana.jpg", "v": "Wikimedia Commons", "n": "Konrad Miller's facsimile"}, "Dunhuang Star Atlas": {"f": "thumbs/dunhuang.jpg", "w": 360, "h": 361, "a": "Unknown", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Dunhuang_star_map.jpg", "v": "Wikimedia Commons", "n": ""}, "Yu Ji Tu (Map of the Tracks of Yu)": {"f": "thumbs/yu-ji-tu.jpg", "w": 360, "h": 369, "a": "Chinese", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Yu-ji-tu-map.jpg", "v": "Wikimedia Commons", "n": ""}, "Tabula Rogeriana": {"f": "thumbs/idrisi.jpg", "w": 360, "h": 163, "a": "Konrad Miller (copy and transliteration)", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:TabulaRogeriana.jpg", "v": "Wikimedia Commons", "n": "Konrad Miller's modern redrawing"}, "Carte Pisane": {"f": "thumbs/carte-pisane.jpg", "w": 360, "h": 191, "a": "Unknown", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Carte_Pisane_Portolan.jpg", "v": "Wikimedia Commons", "n": ""}, "Hereford Mappa Mundi": {"f": "thumbs/hereford.jpg", "w": 360, "h": 418, "a": "Unknown", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Hereford-Karte.jpg", "v": "Wikimedia Commons", "n": ""}, "Catalan Atlas": {"f": "thumbs/catalan-atlas.jpg", "w": 360, "h": 117, "a": "Cresques Abraham", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:1375_Atlas_Catalan_Abraham_Cresques.jpg", "v": "Wikimedia Commons", "n": ""}, "Kangnido": {"f": "thumbs/kangnido.jpg", "w": 360, "h": 333, "a": "Kim Sahyung, Lee Moo, Lee Hui", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:KangnidoMap.jpg", "v": "Wikimedia Commons", "n": ""}, "Mao Kun Map": {"f": "thumbs/mao-kun.jpg", "w": 360, "h": 256, "a": "Unknown", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Zhenghe-sailing-chart.gif", "v": "Wikimedia Commons", "n": ""}, "Fra Mauro World Map": {"f": "thumbs/fra-mauro.jpg", "w": 360, "h": 360, "a": "Piero Falchetta", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:FraMauroDetailedMap.jpg", "v": "Wikimedia Commons", "n": ""}, "Cantino Planisphere": {"f": "thumbs/cantino.jpg", "w": 360, "h": 169, "a": "anonymous Portuguese (1502)", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Cantino_planisphere_(1502).jpg", "v": "Wikimedia Commons", "n": ""}, "Plan of Imola": {"f": "thumbs/imola.jpg", "w": 360, "h": 266, "a": "Leonardo da Vinci", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Leonardo_da_Vinci_-_Plan_of_Imola_-_Google_Art_Project.jpg", "v": "Wikimedia Commons", "n": ""}, "Waldseemuller World Map": {"f": "thumbs/waldseemuller.jpg", "w": 360, "h": 199, "a": "Martin Waldseem\u00fcller", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Waldseemuller_map_2.jpg", "v": "Wikimedia Commons", "n": ""}, "Nuremberg Map of Tenochtitlan": {"f": "thumbs/tenochtitlan.jpg", "w": 360, "h": 228, "a": "Hern\u00e1n Cort\u00e9s", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Map_of_Tenochtitlan_and_Gulf_of_Mexico,_1524.jpg", "v": "Wikimedia Commons", "n": ""}, "Mercator's World Map": {"f": "thumbs/mercator.jpg", "w": 360, "h": 229, "a": "Gerardus Mercator", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Mercator_1569.png", "v": "Wikimedia Commons", "n": ""}, "Theatrum Orbis Terrarum": {"f": "thumbs/ortelius.jpg", "w": 360, "h": 246, "a": "Abraham Ortelius", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:OrteliusWorldMap1570.jpg", "v": "Wikimedia Commons", "n": ""}, "Kunyu Wanguo Quantu": {"f": "thumbs/ricci.jpg", "w": 360, "h": 162, "a": "Matteo Ricci", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Kunyu_Wanguo_Quantu_(%E5%9D%A4%E8%BC%BF%E8%90%AC%E5%9C%8B%E5%85%A8%E5%9C%96).jpg", "v": "Wikimedia Commons", "n": ""}, "Riccioli and Grimaldi's Moon Map": {"f": "thumbs/riccioli.jpg", "w": 360, "h": 382, "a": "G. B. Riccioli", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Riccioli1651MoonMap.jpg", "v": "Wikimedia Commons", "n": ""}, "Halley's Chart of Compass Variation": {"f": "thumbs/halley.jpg", "w": 360, "h": 422, "a": "London, [W. and J. Mount, and T. Page]", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Halley_isogonic_1701.jpg", "v": "Wikimedia Commons", "n": ""}, "Cassini Map of France": {"f": "thumbs/cassini.jpg", "w": 360, "h": 402, "a": "Cassini de Thury", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:0_Cassini_Carte_France.jpg", "v": "Wikimedia Commons", "n": ""}, "Nolli's Plan of Rome": {"f": "thumbs/nolli.jpg", "w": 360, "h": 307, "a": "Giovanni Battista Nolli (Italian, 1701\u20131756) Carlo Nolli...", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Nuova_pianta_di_Roma_data_in_luce_da_Giambattista_Nolli_l%E2%80%99anno_MDCCXLVII,_known_as_La_Pianta_Grande_di_Roma_(IA_clevelandart-2020.276-nuova-pianta-di-roma).tif", "v": "Wikimedia Commons", "n": ""}, "Mitchell Map": {"f": "thumbs/mitchell.jpg", "w": 360, "h": 254, "a": "John Mitchell", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Mitchell_Map-06full2.jpg", "v": "Wikimedia Commons", "n": ""}, "Franklin-Folger Chart of the Gulf Stream": {"f": "thumbs/franklin-folger.jpg", "w": 360, "h": 269, "a": "Franklin, Benjamin (1706-1790). Cartographe Folger, Timot...", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Franklin-Folger_chart_of_the_Gulf_Stream_-_btv1b7200342r_(3_of_4).jpg", "v": "Wikimedia Commons", "n": ""}, "Tupaia's Chart": {"f": "thumbs/tupaia.jpg", "w": 360, "h": 242, "a": "James Cook", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Tupaia%27s_map,_c._1769.jpg", "v": "Wikimedia Commons", "n": ""}, "Plat of the Seven Ranges": {"f": "thumbs/seven-ranges.jpg", "w": 360, "h": 527, "a": "Carey, Mathew Hutchins, Thos.", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Plat_of_The_Seven_Ranges_Of_Townships_being_Part_of_the_Territory_of_the_United_States_N.W._of_the_River_Ohio_Which_by_a_(IA_dr_plat-of-the-seven-ranges-of-townships-being-part-of-the-territory-of-the-un-2721033).jpg", "v": "Wikimedia Commons", "n": ""}, "Great Trigonometrical Survey of India": {"f": "thumbs/gts-india.jpg", "w": 360, "h": 356, "a": "Lovasoa", "l": "CC0", "u": "https://commons.wikimedia.org/wiki/File:Index_chart_of_the_Great_Trigonometrical_Survey_of_India_(vectorized).svg", "v": "Wikimedia Commons", "n": ""}, "Humboldt's Naturgemalde": {"f": "thumbs/humboldt.jpg", "w": 360, "h": 245, "a": "Bonpland, Aim\u00e9, Arzt, Naturforscher, Entdeckungsreisender...", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg", "v": "Wikimedia Commons", "n": ""}, "The Gerry-mander": {"f": "thumbs/gerrymander.jpg", "w": 360, "h": 377, "a": "Elkanah Tisdale (1771-1835) (often falsely attributed to...", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:The_Gerry-Mander_Edit.png", "v": "Wikimedia Commons", "n": ""}, "Smith's Geological Map of England and Wales": {"f": "thumbs/smith-geology.jpg", "w": 360, "h": 507, "a": "William Smith", "l": "CC0", "u": "https://commons.wikimedia.org/wiki/File:Geological_map_-_William_Smith,_1815_-_BL.jpg", "v": "Wikimedia Commons", "n": ""}, "Dupin's Map of Schooling in France": {"f": "thumbs/dupin.jpg", "w": 360, "h": 377, "a": "Charles Dupin", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Carte_figurative_de_l%27instruction_populaire_de_la_France.jpg", "v": "Wikimedia Commons", "n": ""}, "Darwin's Tree Sketch": {"f": "thumbs/darwin-tree.jpg", "w": 360, "h": 587, "a": "Charles Darwin", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Darwin_Tree_1837.png", "v": "Wikimedia Commons", "n": ""}, "Snow's Cholera Map": {"f": "thumbs/snow-cholera.jpg", "w": 360, "h": 338, "a": "John Snow", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Snow-cholera-map-1.jpg", "v": "Wikimedia Commons", "n": ""}, "Coast Survey Map of Slavery": {"f": "thumbs/slavery-1861.jpg", "w": 360, "h": 295, "a": "NOAA Photo Library", "l": "CC BY 2.0", "u": "https://commons.wikimedia.org/wiki/File:Map_showing_the_distribution_of_the_Slave_Population_of_the_Southern_States_of_the_United_States,_compiled_from_the_census_of_1860._Series_No._3033._-_Cgs05194.jpg", "v": "Wikimedia Commons", "n": ""}, "Mendeleev's Periodic Table": {"f": "thumbs/mendeleev.jpg", "w": 360, "h": 400, "a": "NikNaks", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Mendeleev%27s_1869_periodic_table.svg", "v": "Wikimedia Commons", "n": "Modern redrawing of the 1869 table"}, "Minard's Map of Napoleon's Russian Campaign": {"f": "thumbs/minard.jpg", "w": 360, "h": 171, "a": "Charles Minard (1781\u20131870)", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Minard.png", "v": "Wikimedia Commons", "n": ""}, "The Times Weather Map": {"f": "thumbs/times-weather.jpg", "w": 360, "h": 522, "a": "Weather chart prepared by Francis Galton, published in Th...", "l": "Public domain", "u": "https://galton.org/meteorologist.html", "v": "galton.org", "n": ""}, "Schiaparelli's Map of Mars": {"f": "thumbs/schiaparelli.jpg", "w": 360, "h": 498, "a": "Giovanni Schiaparelli", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Maps_of_Mars_by_Schiaparelli_1877-1882-1888.jpg", "v": "Wikimedia Commons", "n": ""}, "Booth's Poverty Map of London": {"f": "thumbs/booth.jpg", "w": 360, "h": 162, "a": "Nizzan Cohen", "l": "CC0", "u": "https://commons.wikimedia.org/wiki/File:Descriptive_map_of_London_Poverty_in_1889_made_by_Charls_Booth_in_Toynbee_Hall.jpg", "v": "Wikimedia Commons", "n": "Framed sheet on display"}, "Marshall Islands Stick Charts": {"f": "thumbs/stick-charts.jpg", "w": 360, "h": 334, "a": "Unknown", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Marshall_Islands_stick_chart,_Rebbelib_type._LOC_2010586182.jpg", "v": "Wikimedia Commons", "n": ""}, "Brodmann's Map of the Cortex": {"f": "thumbs/brodmann.jpg", "w": 360, "h": 480, "a": "Korbinian Brodmann", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Brodmann_areas_in_marmoset_(K._Brodmann,_1909,_p._161,_Fig._96-97).jpg", "v": "Wikimedia Commons", "n": "Marmoset plate from the 1909 monograph"}, "Wegener's Maps of Continental Drift": {"f": "thumbs/wegener.jpg", "w": 360, "h": 607, "a": "Alfred Wegener", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:De_Wegener_Kontinente_018.jpg", "v": "Wikimedia Commons", "n": ""}, "Sykes-Picot Map": {"f": "thumbs/sykes-picot.jpg", "w": 360, "h": 349, "a": "Royal Geographical Society (Map), Mark Sykes & Fran\u00e7ois G...", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:MPK1-426_Sykes_Picot_Agreement_Map_signed_8_May_1916.jpg", "v": "Wikimedia Commons", "n": ""}, "HOLC Residential Security Maps": {"f": "thumbs/holc.jpg", "w": 360, "h": 461, "a": "Unknown", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Home_Owners%27_Loan_Corporation_Philadelphia_redlining_map.jpg", "v": "Wikimedia Commons", "n": ""}, "The Radcliffe Line": {"f": "thumbs/radcliffe.jpg", "w": 360, "h": 267, "a": "Research Dept., F.O., September, 1948", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Map_of_the_partition_boundaries_in_the_Punjab,_Research_Dept.,_F.O.,_September,_1948.jpg", "v": "Wikimedia Commons", "n": "Foreign Office map of the Punjab boundaries, 1948"}, "ARPANET Four-Node Map": {"f": "thumbs/arpanet.jpg", "w": 360, "h": 526, "a": "DARPA", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:A_sketch_of_the_ARPANET_in_December_1969.png", "v": "Wikimedia Commons", "n": ""}, "Pioneer Plaque Pulsar Map": {"f": "thumbs/pioneer-plaque.jpg", "w": 360, "h": 255, "a": "NASA; vectors by Mysid", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Pioneer_plaque_sun.svg", "v": "Wikimedia Commons", "n": ""}, "Satellite Map of the Ozone Hole": {"f": "thumbs/ozone-hole.jpg", "w": 360, "h": 360, "a": "NASA", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:Largest_ever_Ozone_hole_sept2000.jpg", "v": "Wikimedia Commons", "n": "TOMS image from September 2000, not the 1985 map"}, "Human Genome Sequence": {"f": "thumbs/genome.jpg", "w": 360, "h": 282, "a": "Courtesy: National Human Genome Research Institute", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:NHGRI_human_male_karyotype.png", "v": "Wikimedia Commons", "n": "A chromosome chart, as a stand-in"}, "WMAP Map of the Early Universe": {"f": "thumbs/wmap.jpg", "w": 360, "h": 180, "a": "NASA/Goddard/WMAP Science Team", "l": "Public domain", "u": "https://commons.wikimedia.org/wiki/File:WMAP_2006_94_GHz_temperature_map.png", "v": "Wikimedia Commons", "n": "94 GHz map from the 2006 data release"}, "Gaia's Map of the Milky Way": {"f": "thumbs/gaia.jpg", "w": 360, "h": 227, "a": "ESA/Gaia/DPAC", "l": "CC BY 4.0", "u": "https://commons.wikimedia.org/wiki/File:Gaia%27s_all-sky_view_(ESA_Gaia_DR2_AllSky_Brightness_Colour_black_bg_8k).tiff", "v": "Wikimedia Commons", "n": ""}};
+var active = "All";
+function thumb(m){
+  var c=THUMBS[m.t];
+  if(!c) return '<span class="nothumb">No thumbnail: image in copyright</span>';
+  return '<a class="thumb" href="'+esc(c.u)+'" target="_blank" rel="noopener"><img src="'+esc(c.f)+'" width="'+c.w+'" height="'+c.h+'" loading="lazy" alt="'+esc(m.t)+'"></a>';
+}
+function credit(m){
+  var c=THUMBS[m.t];
+  if(!c) return "";
+  return '<span><b>Image:</b> '+(c.n?esc(c.n)+'. ':'')+'<a href="'+esc(c.u)+'" target="_blank" rel="noopener">'+esc(c.a)+'</a>, '+esc(c.l)+', via '+esc(c.v)+'</span>';
+}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function eraOf(y){for(var i=0;i<ERAS.length;i++){if(y<=ERAS[i].to)return i;}return ERAS.length-1;}
+
+function renderChips(){
+  var el=document.getElementById("chips"), names=["All"].concat(THEMES), h="";
+  for(var i=0;i<names.length;i++){
+    var n=names[i], c=0;
+    for(var j=0;j<MAPS.length;j++){ if(n==="All"||MAPS[j].th===n)c++; }
+    h+='<button type="button" class="chip" id="chip-'+i+'" data-th="'+esc(n)+'" aria-pressed="'+(n===active)+'">'+esc(n)+'<span class="ct">'+c+'</span></button>';
+  }
+  el.innerHTML=h;
+}
+function renderList(){
+  var el=document.getElementById("list"), h="", last=-1;
+  for(var i=0;i<MAPS.length;i++){
+    var m=MAPS[i];
+    if(active!=="All"&&m.th!==active)continue;
+    var e=eraOf(m.y);
+    if(e!==last){ h+='<div class="era"><span>'+esc(ERAS[e].label)+'</span></div>'; last=e; }
+    h+='<article class="entry">'
+      +'<div class="rail"><span class="num">No. '+(i<9?"0":"")+(i+1)+'</span><span class="year">'+esc(m.yd)+'</span>'+(m.yn?'<span class="yn">'+esc(m.yn)+'</span>':'')+thumb(m)+'</div>'
+      +'<div class="body"><h2>'+esc(m.t)+'</h2>'
+      +'<div class="meta"><span class="tag">'+esc(m.th)+'</span><span>'+esc(m.by)+'</span></div>'
+      +'<p><span class="lab">What it is</span>'+esc(m.what)+'</p>'
+      +'<p><span class="lab">What it changed</span>'+esc(m.ch)+'</p>'
+      +'<div class="foot"><span><b>Where it is now:</b> '+esc(m.now)+'</span><span><b>Source:</b> <a href="'+esc(m.su)+'" target="_blank" rel="noopener">'+esc(m.sl)+'</a></span>'+credit(m)+'</div>'
+      +'</div></article>';
+  }
+  el.innerHTML=h;
+}
+document.getElementById("chips").addEventListener("click",function(ev){
+  var b=ev.target.closest("button"); if(!b)return;
+  active=b.getAttribute("data-th"); renderChips(); renderList();
+});
+renderChips(); renderList();
+</script>
+</body>
+</html>

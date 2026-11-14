@@ -1,0 +1,506 @@
+[
+  {
+    "id": "nebra",
+    "title": "Nebra Sky Disc",
+    "file": "thumbs/nebra.jpg",
+    "artist": "Dbachmann",
+    "license": "CC BY-SA 3.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Nebra_Scheibe.jpg",
+    "commons_title": "File:Nebra Scheibe.jpg"
+  },
+  {
+    "id": "turin-papyrus",
+    "title": "Turin Papyrus Map",
+    "file": "thumbs/turin-papyrus.jpg",
+    "artist": "Unknown",
+    "license": "CC0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Turin_Papyrus_(geological_map)_-_Museo_Egizio_Turin_C_1879_1969_1899_p01.jpg",
+    "commons_title": "File:Turin Papyrus (geological map) - Museo Egizio Turin C 1879 1969 1899 p01.jpg"
+  },
+  {
+    "id": "babylonian",
+    "title": "Babylonian Map of the World",
+    "file": "thumbs/babylonian.jpg",
+    "artist": "Osama Shukir Muhammed Amin FRCP(Glasg)",
+    "license": "CC BY-SA 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:The_Babylonian_map_of_the_world,_from_Sippar,_Mesopotamia..JPG",
+    "commons_title": "File:The Babylonian map of the world, from Sippar, Mesopotamia..JPG"
+  },
+  {
+    "id": "ptolemy",
+    "title": "Ptolemy's Geography",
+    "file": "thumbs/ptolemy.jpg",
+    "artist": "Credited to Francesco di Antonio del Chierico",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:PtolemyWorldMap.jpg",
+    "commons_title": "File:PtolemyWorldMap.jpg"
+  },
+  {
+    "id": "forma-urbis",
+    "title": "Forma Urbis Romae",
+    "file": "thumbs/forma-urbis.jpg",
+    "artist": "Rodolfo Lanciani (1845-1929)",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Forma_Urbis_Romae_-_Macellum_Liviae.png",
+    "commons_title": "File:Forma Urbis Romae - Macellum Liviae.png",
+    "note": "Rodolfo Lanciani's drawing of one fragment"
+  },
+  {
+    "id": "peutinger",
+    "title": "Tabula Peutingeriana",
+    "file": "thumbs/peutinger.jpg",
+    "artist": "Konrad Miller",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:TabulaPeutingeriana.jpg",
+    "commons_title": "File:TabulaPeutingeriana.jpg",
+    "note": "Konrad Miller's facsimile"
+  },
+  {
+    "id": "dunhuang",
+    "title": "Dunhuang Star Atlas",
+    "file": "thumbs/dunhuang.jpg",
+    "artist": "Unknown",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Dunhuang_star_map.jpg",
+    "commons_title": "File:Dunhuang star map.jpg"
+  },
+  {
+    "id": "yu-ji-tu",
+    "title": "Yu Ji Tu",
+    "file": "thumbs/yu-ji-tu.jpg",
+    "artist": "Chinese",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Yu-ji-tu-map.jpg",
+    "commons_title": "File:Yu-ji-tu-map.jpg"
+  },
+  {
+    "id": "idrisi",
+    "title": "Tabula Rogeriana",
+    "file": "thumbs/idrisi.jpg",
+    "artist": "Konrad Miller (copy and transliteration)",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:TabulaRogeriana.jpg",
+    "commons_title": "File:TabulaRogeriana.jpg",
+    "note": "Konrad Miller's modern redrawing"
+  },
+  {
+    "id": "carte-pisane",
+    "title": "Carte Pisane",
+    "file": "thumbs/carte-pisane.jpg",
+    "artist": "Unknown artistUnknown artist",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Carte_Pisane_Portolan.jpg",
+    "commons_title": "File:Carte Pisane Portolan.jpg"
+  },
+  {
+    "id": "hereford",
+    "title": "Hereford Mappa Mundi",
+    "file": "thumbs/hereford.jpg",
+    "artist": "Unknown authorUnknown author",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Hereford-Karte.jpg",
+    "commons_title": "File:Hereford-Karte.jpg"
+  },
+  {
+    "id": "catalan-atlas",
+    "title": "Catalan Atlas",
+    "file": "thumbs/catalan-atlas.jpg",
+    "artist": "Cresques Abraham",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:1375_Atlas_Catalan_Abraham_Cresques.jpg",
+    "commons_title": "File:1375 Atlas Catalan Abraham Cresques.jpg"
+  },
+  {
+    "id": "kangnido",
+    "title": "Kangnido",
+    "file": "thumbs/kangnido.jpg",
+    "artist": "Kim Sahyung, Lee Moo, Lee Hui",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:KangnidoMap.jpg",
+    "commons_title": "File:KangnidoMap.jpg"
+  },
+  {
+    "id": "mao-kun",
+    "title": "Mao Kun Map",
+    "file": "thumbs/mao-kun.jpg",
+    "artist": "Unknown",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Zhenghe-sailing-chart.gif",
+    "commons_title": "File:Zhenghe-sailing-chart.gif"
+  },
+  {
+    "id": "fra-mauro",
+    "title": "Fra Mauro World Map",
+    "file": "thumbs/fra-mauro.jpg",
+    "artist": "Piero Falchetta",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:FraMauroDetailedMap.jpg",
+    "commons_title": "File:FraMauroDetailedMap.jpg"
+  },
+  {
+    "id": "cantino",
+    "title": "Cantino Planisphere",
+    "file": "thumbs/cantino.jpg",
+    "artist": "anonymous Portuguese (1502)",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Cantino_planisphere_(1502).jpg",
+    "commons_title": "File:Cantino planisphere (1502).jpg"
+  },
+  {
+    "id": "imola",
+    "title": "Plan of Imola",
+    "file": "thumbs/imola.jpg",
+    "artist": "Leonardo da Vinci",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Leonardo_da_Vinci_-_Plan_of_Imola_-_Google_Art_Project.jpg",
+    "commons_title": "File:Leonardo da Vinci - Plan of Imola - Google Art Project.jpg"
+  },
+  {
+    "id": "waldseemuller",
+    "title": "Waldseemuller World Map",
+    "file": "thumbs/waldseemuller.jpg",
+    "artist": "Martin Waldseemüller",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Waldseemuller_map_2.jpg",
+    "commons_title": "File:Waldseemuller map 2.jpg"
+  },
+  {
+    "id": "tenochtitlan",
+    "title": "Nuremberg Map of Tenochtitlan",
+    "file": "thumbs/tenochtitlan.jpg",
+    "artist": "Hernán Cortés",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Map_of_Tenochtitlan_and_Gulf_of_Mexico,_1524.jpg",
+    "commons_title": "File:Map of Tenochtitlan and Gulf of Mexico, 1524.jpg"
+  },
+  {
+    "id": "mercator",
+    "title": "Mercator's World Map",
+    "file": "thumbs/mercator.jpg",
+    "artist": "Gerardus Mercator",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Mercator_1569.png",
+    "commons_title": "File:Mercator 1569.png"
+  },
+  {
+    "id": "ortelius",
+    "title": "Theatrum Orbis Terrarum",
+    "file": "thumbs/ortelius.jpg",
+    "artist": "Abraham Ortelius",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:OrteliusWorldMap1570.jpg",
+    "commons_title": "File:OrteliusWorldMap1570.jpg"
+  },
+  {
+    "id": "ricci",
+    "title": "Kunyu Wanguo Quantu",
+    "file": "thumbs/ricci.jpg",
+    "artist": "Matteo Ricci",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Kunyu_Wanguo_Quantu_(%E5%9D%A4%E8%BC%BF%E8%90%AC%E5%9C%8B%E5%85%A8%E5%9C%96).jpg",
+    "commons_title": "File:Kunyu Wanguo Quantu (坤輿萬國全圖).jpg"
+  },
+  {
+    "id": "riccioli",
+    "title": "Riccioli and Grimaldi's Moon Map",
+    "file": "thumbs/riccioli.jpg",
+    "artist": "G. B. Riccioli",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Riccioli1651MoonMap.jpg",
+    "commons_title": "File:Riccioli1651MoonMap.jpg"
+  },
+  {
+    "id": "halley",
+    "title": "Halley's Chart of Compass Variation",
+    "file": "thumbs/halley.jpg",
+    "artist": "London, [W. and J. Mount, and T. Page]",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Halley_isogonic_1701.jpg",
+    "commons_title": "File:Halley isogonic 1701.jpg"
+  },
+  {
+    "id": "cassini",
+    "title": "Cassini Map of France",
+    "file": "thumbs/cassini.jpg",
+    "artist": "Cassini de Thury",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:0_Cassini_Carte_France.jpg",
+    "commons_title": "File:0 Cassini Carte France.jpg"
+  },
+  {
+    "id": "nolli",
+    "title": "Nolli's Plan of Rome",
+    "file": "thumbs/nolli.jpg",
+    "artist": "Giovanni Battista Nolli (Italian, 1701–1756) Carlo Nolli (Italian, 1690–1790) Rocco Pozzi (Italian, 1701–1774) Pietro Campana de Soriano (Italian, 1725–c. 1779)",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Nuova_pianta_di_Roma_data_in_luce_da_Giambattista_Nolli_l%E2%80%99anno_MDCCXLVII,_known_as_La_Pianta_Grande_di_Roma_(IA_clevelandart-2020.276-nuova-pianta-di-roma).tif",
+    "commons_title": "File:Nuova pianta di Roma data in luce da Giambattista Nolli l’anno MDCCXLVII, known as La Pianta Grande di Roma (IA clevelandart-2020.276-nuova-pianta-di-roma).tif"
+  },
+  {
+    "id": "mitchell",
+    "title": "Mitchell Map",
+    "file": "thumbs/mitchell.jpg",
+    "artist": "John Mitchell",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Mitchell_Map-06full2.jpg",
+    "commons_title": "File:Mitchell Map-06full2.jpg"
+  },
+  {
+    "id": "franklin-folger",
+    "title": "Franklin-Folger Chart of the Gulf Stream",
+    "file": "thumbs/franklin-folger.jpg",
+    "artist": "Franklin, Benjamin (1706-1790). Cartographe Folger, Timothy (17..-18..? ; cartographe). Cartographe Halley, Edmund (1656-1742). Cartographe du modèle Wright, Ed",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Franklin-Folger_chart_of_the_Gulf_Stream_-_btv1b7200342r_(3_of_4).jpg",
+    "commons_title": "File:Franklin-Folger chart of the Gulf Stream - btv1b7200342r (3 of 4).jpg"
+  },
+  {
+    "id": "tupaia",
+    "title": "Tupaia's Chart",
+    "file": "thumbs/tupaia.jpg",
+    "artist": "James Cook",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Tupaia%27s_map,_c._1769.jpg",
+    "commons_title": "File:Tupaia's map, c. 1769.jpg"
+  },
+  {
+    "id": "seven-ranges",
+    "title": "Plat of the Seven Ranges",
+    "file": "thumbs/seven-ranges.jpg",
+    "artist": "Carey, Mathew Hutchins, Thos.",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Plat_of_The_Seven_Ranges_Of_Townships_being_Part_of_the_Territory_of_the_United_States_N.W._of_the_River_Ohio_Which_by_a_(IA_dr_plat-of-the-seven-ranges-of-townships-being-part-of-the-territory-of-the-un-2721033).jpg",
+    "commons_title": "File:Plat of The Seven Ranges Of Townships being Part of the Territory of the United States N.W. of the River Ohio Which by a (IA dr plat-of-the-seven-ranges-of-townships-being-part-of-the-territory-of-the-un-2721033).jpg"
+  },
+  {
+    "id": "gts-india",
+    "title": "Great Trigonometrical Survey of India",
+    "file": "thumbs/gts-india.jpg",
+    "artist": "Lovasoa",
+    "license": "CC0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Index_chart_of_the_Great_Trigonometrical_Survey_of_India_(vectorized).svg",
+    "commons_title": "File:Index chart of the Great Trigonometrical Survey of India (vectorized).svg"
+  },
+  {
+    "id": "humboldt",
+    "title": "Humboldt's Naturgemalde",
+    "file": "thumbs/humboldt.jpg",
+    "artist": "Bonpland, Aimé, Arzt, Naturforscher, Entdeckungsreisender, Frankreich, 1773 - 1858",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg",
+    "commons_title": "File:Zentralbibliothek Zürich - Ideen zu einer Geographie der Pflanzen nebst einem Naturgemälde der Tropenländer - 000012142.jpg"
+  },
+  {
+    "id": "gerrymander",
+    "title": "The Gerry-mander",
+    "file": "thumbs/gerrymander.jpg",
+    "artist": "Elkanah Tisdale (1771-1835) (often falsely attributed to Gilbert Stuart)[1]",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:The_Gerry-Mander_Edit.png",
+    "commons_title": "File:The Gerry-Mander Edit.png"
+  },
+  {
+    "id": "smith-geology",
+    "title": "Smith's Geological Map",
+    "file": "thumbs/smith-geology.jpg",
+    "artist": "William Smith",
+    "license": "CC0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Geological_map_-_William_Smith,_1815_-_BL.jpg",
+    "commons_title": "File:Geological map - William Smith, 1815 - BL.jpg"
+  },
+  {
+    "id": "dupin",
+    "title": "Dupin's Map of Schooling",
+    "file": "thumbs/dupin.jpg",
+    "artist": "Charles Dupin",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Carte_figurative_de_l%27instruction_populaire_de_la_France.jpg",
+    "commons_title": "File:Carte figurative de l'instruction populaire de la France.jpg"
+  },
+  {
+    "id": "darwin-tree",
+    "title": "Darwin's Tree Sketch",
+    "file": "thumbs/darwin-tree.jpg",
+    "artist": "Charles Darwin",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Darwin_Tree_1837.png",
+    "commons_title": "File:Darwin Tree 1837.png"
+  },
+  {
+    "id": "snow-cholera",
+    "title": "Snow's Cholera Map",
+    "file": "thumbs/snow-cholera.jpg",
+    "artist": "John Snow",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Snow-cholera-map-1.jpg",
+    "commons_title": "File:Snow-cholera-map-1.jpg"
+  },
+  {
+    "id": "slavery-1861",
+    "title": "Coast Survey Map of Slavery",
+    "file": "thumbs/slavery-1861.jpg",
+    "artist": "NOAA Photo Library",
+    "license": "CC BY 2.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Map_showing_the_distribution_of_the_Slave_Population_of_the_Southern_States_of_the_United_States,_compiled_from_the_census_of_1860._Series_No._3033._-_Cgs05194.jpg",
+    "commons_title": "File:Map showing the distribution of the Slave Population of the Southern States of the United States, compiled from the census of 1860. Series No. 3033. - Cgs05194.jpg"
+  },
+  {
+    "id": "mendeleev",
+    "title": "Mendeleev's Periodic Table",
+    "file": "thumbs/mendeleev.jpg",
+    "artist": "NikNaks",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Mendeleev%27s_1869_periodic_table.svg",
+    "commons_title": "File:Mendeleev's 1869 periodic table.svg",
+    "note": "Modern redrawing of the 1869 table"
+  },
+  {
+    "id": "minard",
+    "title": "Minard's Map",
+    "file": "thumbs/minard.jpg",
+    "artist": "Charles Minard (1781–1870)",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Minard.png",
+    "commons_title": "File:Minard.png"
+  },
+  {
+    "id": "times-weather",
+    "title": "The Times Weather Map",
+    "file": "thumbs/times-weather.jpg",
+    "artist": "Weather chart prepared by Francis Galton, published in The Times (London), 1 April 1875",
+    "license": "Public domain (published in The Times, 1875)",
+    "source_url": "https://galton.org/meteorologist.html"
+  },
+  {
+    "id": "schiaparelli",
+    "title": "Schiaparelli's Map of Mars",
+    "file": "thumbs/schiaparelli.jpg",
+    "artist": "Giovanni Schiaparelli",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Maps_of_Mars_by_Schiaparelli_1877-1882-1888.jpg",
+    "commons_title": "File:Maps of Mars by Schiaparelli 1877-1882-1888.jpg"
+  },
+  {
+    "id": "booth",
+    "title": "Booth's Poverty Map",
+    "file": "thumbs/booth.jpg",
+    "artist": "Nizzan Cohen",
+    "license": "CC0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Descriptive_map_of_London_Poverty_in_1889_made_by_Charls_Booth_in_Toynbee_Hall.jpg",
+    "commons_title": "File:Descriptive map of London Poverty in 1889 made by Charls Booth in Toynbee Hall.jpg",
+    "note": "Framed sheet on display"
+  },
+  {
+    "id": "stick-charts",
+    "title": "Marshall Islands Stick Charts",
+    "file": "thumbs/stick-charts.jpg",
+    "artist": "Unknown authorUnknown author",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Marshall_Islands_stick_chart,_Rebbelib_type._LOC_2010586182.jpg",
+    "commons_title": "File:Marshall Islands stick chart, Rebbelib type. LOC 2010586182.jpg"
+  },
+  {
+    "id": "brodmann",
+    "title": "Brodmann's Map of the Cortex",
+    "file": "thumbs/brodmann.jpg",
+    "artist": "Korbinian Brodmann",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Brodmann_areas_in_marmoset_(K._Brodmann,_1909,_p._161,_Fig._96-97).jpg",
+    "commons_title": "File:Brodmann areas in marmoset (K. Brodmann, 1909, p. 161, Fig. 96-97).jpg",
+    "note": "Marmoset plate from the 1909 monograph"
+  },
+  {
+    "id": "wegener",
+    "title": "Wegener's Maps of Continental Drift",
+    "file": "thumbs/wegener.jpg",
+    "artist": "Alfred Wegener",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:De_Wegener_Kontinente_018.jpg",
+    "commons_title": "File:De Wegener Kontinente 018.jpg"
+  },
+  {
+    "id": "sykes-picot",
+    "title": "Sykes-Picot Map",
+    "file": "thumbs/sykes-picot.jpg",
+    "artist": "Royal Geographical Society (Map), Mark Sykes & François Georges-Picot (Annotations)",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:MPK1-426_Sykes_Picot_Agreement_Map_signed_8_May_1916.jpg",
+    "commons_title": "File:MPK1-426 Sykes Picot Agreement Map signed 8 May 1916.jpg"
+  },
+  {
+    "id": "holc",
+    "title": "HOLC Residential Security Maps",
+    "file": "thumbs/holc.jpg",
+    "artist": "Unknown",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Home_Owners%27_Loan_Corporation_Philadelphia_redlining_map.jpg",
+    "commons_title": "File:Home Owners' Loan Corporation Philadelphia redlining map.jpg"
+  },
+  {
+    "id": "radcliffe",
+    "title": "The Radcliffe Line",
+    "file": "thumbs/radcliffe.jpg",
+    "artist": "Research Dept., F.O., September, 1948",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Map_of_the_partition_boundaries_in_the_Punjab,_Research_Dept.,_F.O.,_September,_1948.jpg",
+    "commons_title": "File:Map of the partition boundaries in the Punjab, Research Dept., F.O., September, 1948.jpg",
+    "note": "Foreign Office map of the Punjab boundaries, 1948"
+  },
+  {
+    "id": "arpanet",
+    "title": "ARPANET Four-Node Map",
+    "file": "thumbs/arpanet.jpg",
+    "artist": "DARPA",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:A_sketch_of_the_ARPANET_in_December_1969.png",
+    "commons_title": "File:A sketch of the ARPANET in December 1969.png"
+  },
+  {
+    "id": "pioneer-plaque",
+    "title": "Pioneer Plaque Pulsar Map",
+    "file": "thumbs/pioneer-plaque.jpg",
+    "artist": "NASA; vectors by Mysid",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Pioneer_plaque_sun.svg",
+    "commons_title": "File:Pioneer plaque sun.svg"
+  },
+  {
+    "id": "ozone-hole",
+    "title": "Satellite Map of the Ozone Hole",
+    "file": "thumbs/ozone-hole.jpg",
+    "artist": "NASA",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Largest_ever_Ozone_hole_sept2000.jpg",
+    "commons_title": "File:Largest ever Ozone hole sept2000.jpg",
+    "note": "TOMS image from September 2000, not the 1985 map"
+  },
+  {
+    "id": "genome",
+    "title": "Human Genome Sequence",
+    "file": "thumbs/genome.jpg",
+    "artist": "Courtesy: National Human Genome Research Institute",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:NHGRI_human_male_karyotype.png",
+    "commons_title": "File:NHGRI human male karyotype.png",
+    "note": "A chromosome chart, as a stand-in"
+  },
+  {
+    "id": "wmap",
+    "title": "WMAP Map of the Early Universe",
+    "file": "thumbs/wmap.jpg",
+    "artist": "NASA/Goddard/WMAP Science Team",
+    "license": "Public domain",
+    "source_url": "https://commons.wikimedia.org/wiki/File:WMAP_2006_94_GHz_temperature_map.png",
+    "commons_title": "File:WMAP 2006 94 GHz temperature map.png",
+    "note": "94 GHz map from the 2006 data release"
+  },
+  {
+    "id": "gaia",
+    "title": "Gaia's Map of the Milky Way",
+    "file": "thumbs/gaia.jpg",
+    "artist": "ESA/Gaia/DPAC",
+    "license": "CC BY 4.0",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Gaia%27s_all-sky_view_(ESA_Gaia_DR2_AllSky_Brightness_Colour_black_bg_8k).tiff",
+    "commons_title": "File:Gaia's all-sky view (ESA Gaia DR2 AllSky Brightness Colour black bg 8k).tiff"
+  }
+]
