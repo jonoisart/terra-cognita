@@ -34,7 +34,7 @@ Clicking a thumbnail opens a full-window viewer. It shows the local thumbnail at
 | `thumbs/` | Thumbnails, 360 px wide JPEGs |
 | `credits.json` | Artist, license and source for every thumbnail |
 | `collect_thumbs.py` | Collects openly licensed thumbnails from Wikimedia Commons |
-| `flyer/` | Printable one-page flyer (US Letter PDF) with a QR code to the live site, plus `make_qr.py` and `build.py` to regenerate it |
+| `flyer/` | Printable one-page flyer (US Letter PDF) with a QR code to the live site, plus `make_qr.py` and `build.py` to regenerate it. `flyer/fonts/` holds Bodoni Moda and IBM Plex under the SIL Open Font License 1.1 |
 | `LICENSE` | MIT, for the code and text |
 
 ## Collecting thumbnails

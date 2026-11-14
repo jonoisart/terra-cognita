@@ -20,10 +20,15 @@ inside = "".join(f"<li>{t}</li>" for t in INSIDE)
 html = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Terra Cognita flyer</title>
 <style>
 @page {{ size: 8.5in 11in; margin: 0 }}
+/* Site fonts, bundled in flyer/fonts (SIL OFL 1.1) so the build does not depend on installed fonts */
+@font-face {{ font-family:'Bodoni Moda'; src:url(fonts/BodoniModa-Variable.ttf); font-weight:400 900 }}
+@font-face {{ font-family:'IBM Plex Sans'; src:url(fonts/IBMPlexSans-Regular.ttf); font-weight:400 }}
+@font-face {{ font-family:'IBM Plex Sans'; src:url(fonts/IBMPlexSans-SemiBold.ttf); font-weight:600 }}
+@font-face {{ font-family:'IBM Plex Mono'; src:url(fonts/IBMPlexMono-Regular.ttf); font-weight:400 }}
 :root {{ --ink:#13232b; --muted:#536770; --sea:#1b5b6c; --gilt:#9a6f0c; --rule:#cbd5d5; --grid:rgba(27,91,108,.13);
-  --display:'Latin Modern Roman','Bodoni Moda',Didot,Georgia,serif;
-  --body:'TeX Gyre Heros','IBM Plex Sans',Helvetica,Arial,sans-serif;
-  --mono:'Latin Modern Mono','IBM Plex Mono',Menlo,monospace; }}
+  --display:'Bodoni Moda',Didot,Georgia,serif;
+  --body:'IBM Plex Sans',Helvetica,Arial,sans-serif;
+  --mono:'IBM Plex Mono',Menlo,monospace; }}
 * {{ box-sizing:border-box; margin:0; padding:0 }}
 html,body {{ width:8.5in; height:11in; background:#fff; color:var(--ink); font-family:var(--body);
   -webkit-print-color-adjust:exact; print-color-adjust:exact }}
